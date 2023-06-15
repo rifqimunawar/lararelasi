@@ -16,17 +16,17 @@ class PenghuniSeeder extends Seeder
         DB::table('penghuni')->insert([
             'name' => 'rifqi',
             'domisili' =>'bandung',
-            'kamar_id' =>'1',
+            'kamars_id' =>'1',
         ]);
         DB::table('penghuni')->insert([
             'name' => 'munawar',
             'domisili' =>'kab. bandung',
-            'kamar_id' =>'1',
+            'kamars_id' =>'1',
         ]);
         DB::table('penghuni')->insert([
             'name' => 'ridwan',
             'domisili' =>'kab. bandung barat',
-            'kamar_id' =>'2',
+            'kamars_id' =>'2',
         ]);
     }
 }
