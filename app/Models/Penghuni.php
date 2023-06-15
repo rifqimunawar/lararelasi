@@ -16,4 +16,9 @@ class Penghuni extends Model
     {
         return $this->belongsTo(Kamar::class);
     }
+
+    public function phone()
+    {
+        return $this->hasOne(Phone::class);
+    }
 }

@@ -60,7 +60,10 @@
                       <option value="{{ $kamar->id }}">{{ $kamar->name }}</option>
                     @endforeach
                   </select>
-                  
+                </div>
+                <div class="mb-2">
+                  <label for="phone">WhatsApps</label>
+                  <input class="form-control" type="text" name="phone" aria-label="default input example">
                 </div>
                 <div class="d-flex justify-content-end">
                   <a href="{{ route('penghuni.index') }}" class="btn btn-warning btn-sm m-2">Kembali</a>

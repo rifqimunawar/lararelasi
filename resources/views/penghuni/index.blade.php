@@ -48,6 +48,7 @@
                       <td class="text-center">Nama</td>
                       <td class="text-start">Domisili</td>
                       <td class="text-center"> Kamar</td>
+                      <td class="text-center"> WhatsApps</td>
                       <td class="text-center"> Aksi</td>
                   </tr>
                   @foreach ($penghunies as $penghuni)
@@ -56,6 +57,13 @@
                       <td class="text-start">{{ $penghuni->name }}</td>
                       <td class="text-start">{{ $penghuni->domisili }}</td>
                       <td class="text-start">{{ $penghuni->kamars->name }}</td>
+                      <td class="text-start">
+                        @if ($penghuni->phone)
+                          {{ $penghuni->phone->phone }}
+                        @else
+                          -
+                        @endif
+                      </td>
                       <td class="text-center">
                           <form action="/penghuni/{{ $penghuni->id }}/" method="POST">
                             <a href="/penghuni/{{ $penghuni->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
