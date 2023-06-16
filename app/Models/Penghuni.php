@@ -21,4 +21,8 @@ class Penghuni extends Model
     {
         return $this->hasOne(Phone::class);
     }
+    public function univ()
+    {
+        return $this->belongsToMany(Univ::class, 'penghuni_univ');
+    }
 }

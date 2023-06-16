@@ -10,8 +10,8 @@ class PenghuniController extends Controller
 {
   public function index()
   {
-      $penghunies = Penghuni::with('kamars', 'phone')->latest()->get();
-// dd($penghunies);
+      $penghunies = Penghuni::with('kamars', 'phone', 'univ')->latest()->get();
+      dd($penghunies);
       return view('penghuni.index', compact('penghunies'));
   }
   

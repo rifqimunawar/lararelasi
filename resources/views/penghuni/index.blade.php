@@ -48,33 +48,45 @@
                       <td class="text-center">Nama</td>
                       <td class="text-start">Domisili</td>
                       <td class="text-center"> Kamar</td>
+                      <td class="text-center"> Kampus</td>
                       <td class="text-center"> WhatsApps</td>
                       <td class="text-center"> Aksi</td>
                   </tr>
                   @foreach ($penghunies as $penghuni)
                   <tr>
-                      <td class="text-center">{{ $loop->iteration }}</td>
-                      <td class="text-start">{{ $penghuni->name }}</td>
-                      <td class="text-start">{{ $penghuni->domisili }}</td>
-                      <td class="text-start">{{ $penghuni->kamars->name }}</td>
-                      <td class="text-start">
-                        @if ($penghuni->phone)
-                          {{ $penghuni->phone->phone }}
+                    <td class="text-center">{{ $loop->iteration }}</td>
+                    <td class="text-start">{{ $penghuni->name }}</td>
+                    <td class="text-start">{{ $penghuni->domisili }}</td>
+                    <td class="text-start">{{ $penghuni->kamars->name }}</td>
+                    <td class="text-start">
+                      @foreach ($penghuni->univ as $universitas)
+                        @if ($universitas)
+                          {{ $universitas->name }}
                         @else
                           -
                         @endif
-                      </td>
-                      <td class="text-center">
-                          <form action="/penghuni/{{ $penghuni->id }}/" method="POST">
-                            <a href="/penghuni/{{ $penghuni->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
-                              @csrf
-                              @method('DELETE')
-                              <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm
-                              ('Apakah Anda yakin ingin menghapus foto ini?')">Hapus</button>
-                          </form>
-                      </td>
+                      @endforeach
+                    </td>
+                    
+                    <td class="text-start">
+                      @if ($penghuni->phone)
+                        {{ $penghuni->phone->phone }}
+                      @else
+                        -
+                      @endif
+                    </td>
+                    <td class="text-center">
+                        <form action="/penghuni/{{ $penghuni->id }}/" method="POST">
+                          <a href="/penghuni/{{ $penghuni->id }}/edit" class="btn btn-warning btn-sm">Edit</a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm
+                            ('Apakah Anda yakin ingin menghapus foto ini?')">Hapus</button>
+                        </form>
+                    </td>
                   </tr>
-                  @endforeach
+                @endforeach
+                
               </table>
       
           </div>
