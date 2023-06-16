@@ -24,11 +24,11 @@
     <!-- Section: Design Block -->
 <section class="">
   <!-- Jumbotron -->
-  <div class="px-4 py-5 px-md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
+  <div class="md-5 text-center text-lg-start" style="background-color: hsl(0, 0%, 96%)">
     <div class="container">
       <div class="row gx-lg-5 align-items-center">
         <div class="col-lg-12 mb-5 mb-lg-0">
-          <h1 class="my-5 display-3 fw-bold ls-tight">
+          <h1 class="display-3 fw-bold ls-tight">
             Data Penghuni Kosan <br /></h1>
             <h4><span class="text-primary">Rifqi Munawar</span>
             </h4>
@@ -48,6 +48,7 @@
                       <td class="text-center">Nama</td>
                       <td class="text-start">Domisili</td>
                       <td class="text-center"> Kamar</td>
+                      <td class="text-center"> WhatsApps</td>
                       <td class="text-center"> Aksi</td>
                   </tr>
                   @foreach ($penghunies as $penghuni)
@@ -56,6 +57,13 @@
                       <td class="text-start">{{ $penghuni->name }}</td>
                       <td class="text-start">{{ $penghuni->domisili }}</td>
                       <td class="text-start">{{ $penghuni->kamars->name }}</td>
+                      <td class="text-start">
+                        @if ($penghuni->phone)
+                          {{ $penghuni->phone->phone }}
+                        @else
+                          -
+                        @endif
+                      </td>
                       <td class="text-center">
                           <form action="/penghuni/{{ $penghuni->id }}/" method="POST">
                             <a href="/penghuni/{{ $penghuni->id }}/edit" class="btn btn-warning btn-sm">Edit</a>

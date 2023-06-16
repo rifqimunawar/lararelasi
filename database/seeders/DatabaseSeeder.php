@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PenghuniSeeder::class,
             KamarSeeder::class,
+            PhoneSeeder::class,
         ]);
     }
 }
