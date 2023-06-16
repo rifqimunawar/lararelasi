@@ -46,7 +46,7 @@ class PenghuniController extends Controller
     {
       $penghunies = Penghuni ::find($id);
       $kamars=Kamar ::all();
-      dd($penghunies);
+      // dd($penghunies);
       return view('penghuni.edit', compact('penghunies', 'kamars'));
     }
     public function update($id, Request $request)
